@@ -1,0 +1,605 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>WSB - Wprowadzenie do testowania oprogramowania</title>
+
+		<!-- bootstrap -->
+		<link rel="stylesheet" href="ext/bootstrap-4.0.0-beta/bootstrap.min.css">
+
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/white.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<style>
+			.reveal section img {
+				background-color:white;
+				border:0;
+				box-shadow: 0 0 0 0;
+			}
+		</style>
+	</head>
+	<body>
+
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h3>W<span style="text-transform: lowercase;">prowadzenie<br />do testowania oprogramowania</span></h3>
+					<img width="60%" src="img/analogia_frigate_pallada.jpg" />
+					<!-- https://en.wikipedia.org/wiki/File:FrigatePallada.jpg -->
+
+					<h5>R<span style="text-transform: lowercase;">aportowanie </span>D<span style="text-transform: lowercase;">efektów </span></h5>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+### I<span style="text-transform: lowercase;">nspiracja</span>
+
+- ?
+- Python: [www.kaggle.com/learn/python](https://www.kaggle.com/learn/python)
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+### O<span style="text-transform: lowercase;">statnie zajęcia</span>
+
+- Przypadki testowe
+- BDD
+- Testy Eksporacyjne
+- Raportowanie defektów
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+### Ć<span style="text-transform: lowercase;">wiczenie</span>
+
+1. Problem
+2. Mierzymy się z zadaniem samemu [timebox]
+3. Pytamy
+4. Zrobiłam / Zrobiłem - warto pokazać
+5. Chyba, że wykładowca nie poprosi, copy&paste zakazane
+
+<p><small>Rekomendacja: własny laptopem*</small></p>
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+### R<span style="text-transform: lowercase;">aportowanie </span>D<span style="text-transform: lowercase;">efektów </span>
+
+- Każdy powienień wiedzieć jak raportować błędy,
+- Dev, Designer, ... , PM oraz support
+				</script>
+			</section>
+
+				<section data-markdown>
+					<script type="text/template">
+### R<span style="text-transform: lowercase;">aportowanie</span> B<span style="text-transform: lowercase;">łędów</span>
+
+1. Jednoznaczny tytuł;
+2. Priorytet;
+3. Reproduktywność;
+4. Krótki opis błędu;
+
+					</script>
+				</section>
+
+				<!--
+				-->
+
+
+				<section data-markdown>
+					<script type="text/template">
+### R<span style="text-transform: lowercase;">aportowanie</span> B<span style="text-transform: lowercase;">łędów</span>
+
+<ol start="5">
+<li>Given: środowisko, konfiguracja, ..., rodzaj użytkownika;</li>
+<li>When: kroki do powtórzenia, aby dostać dany błąd;</li>
+<li>Then: Oczekiwany rezultat vs Co dostaliśmy;</li>
+<li>Dodatkowe informacje oraz załączniki.</li>
+</ol>
+
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+### T<span style="text-transform: lowercase;">ytuł</span>
+
+- Co nie działa i w jaki sposób
+
+```
+Buy button does not work when logged as saler from Chrome
+Running on MacOS10.13, I got error "e0128"
+```
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+### P<span style="text-transform: lowercase;">riorytet</span>
+
+- critical - tracimy klientów lub pieniądze;
+- high - utrudnione korzystanie;
+- medium - nie znaczne utrudnienie, ale wciąż wpływające na użytkownika;
+- low - np., literówka.
+
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+### R<span style="text-transform: lowercase;">eproduktywność</span>
+
+- always
+- often
+- sometimes
+- once
+
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+### G<span style="text-transform: lowercase;">iven</span>
+
+- Wersja aplikacji / wersja, konfiguracja, platforma
+- Środowisko, np., testowe, integracyne produkcyjne
+- Inne szczegóły, które mają wpływ, np., świeża instalacja, po aktualizacji
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+### W<span style="text-transform: lowercase;">hen</span>
+
+- Kroki do zreprodukowania błędu
+- Opis błędu
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+### T<span style="text-transform: lowercase;">hen</span>
+
+- Oczekiwany rezultat
+- Co zobaczyliśmy zamiast
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+### D<span style="text-transform: lowercase;">odatkowe</span> I<span style="text-transform: lowercase;">nformacje</span>
+
+- Wszystko co może pomóc w znalezieniu błędu
+- "Wydaje mi się, że to jest od momentu ostatniego wydania..."
+- Powiązania z innymi zgłoszeniami – jeśli istnieją
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+### Z<span style="text-transform: lowercase;">ałączniki</span>
+
+Nie tylko logi:
+
+- Screenshoty z anotacjami
+- Nagranie
+- Zrzut z narzędzia, n.p., nagranie z dev tools w przeglądarce
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+### C<span style="text-transform: lowercase;">o jeszcze</span>
+
+- Nazwa komponentu, link to kodu
+- Dodatkowe etykiety
+- Wskazanie alternatywnej ścieżki
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+### S<span style="text-transform: lowercase;">tyl</span>
+
+- Obiektywnie
+- i z klasą
+- z punktu widzenia użytkownika
+- z rekomendacją (odniesienie do wartości)
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+### K<span style="text-transform: lowercase;">ontekst</span>
+
+<img src="img/kontekst.svg" >
+
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+### C<span style="text-transform: lowercase;">zęste błędy</span>
+
+- nie jasny opis;
+- trudny do odtworzenia błąd;
+- taki sam błąd lub podobny był już zgłoszony;
+- bez odniesienia się do wartości biznesowej (czy jej straty).
+
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+### C<span style="text-transform: lowercase;">ykl życia raportu</span>
+
+<img src="img/cykl_zycia_raport.svg" >
+
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+### R<span style="text-transform: lowercase;">aportowanie</span>
+
+Przykłady:
+
+- Firefox: [doc](https://support.mozilla.org/en-US/kb/file-bug-report-or-feature-request-mozilla), [proces](https://bugzilla.mozilla.org/page.cgi?id=bug-writing.html), [przykład](https://bugzilla.mozilla.org/show_bug.cgi?id=1496148)
+- Chrome: [proces](https://www.chromium.org/for-testers/bug-reporting-guidelines),[przykład](https://bugs.chromium.org/p/chromium/issues/list)
+- Gitlab:  [docs](https://gitlab.com/gitlab-org/gitlab/-/blob/master/doc/development/contributing/issue_workflow.md), [przykład]((https://gitlab.com/gitlab-org/gitlab/-/issues?sort=created_date&state=opened)
+- Kubernetes: [przykład](https://github.com/kubernetes/kubernetes/issues/106548), [szablon raportu](https://github.com/kubernetes/kubernetes/blob/master/.github/ISSUE_TEMPLATE/bug-report.yaml)
+
+					</script>
+				</section>
+				<!--
+
+				https://github.com/traefik/traefik/blob/master/.github/ISSUE_TEMPLATE/bug_report.yml
+				-->
+
+				<section data-markdown>
+					<script type="text/template">
+### N<span style="text-transform: lowercase;">arzędzia</span>
+
+Część SCM:
+
+- [Github issues](https://github.com/features/issues/) - prostszy
+- [Gitlab issues](https://docs.gitlab.com/ee/user/project/issue_board.html) - bardziej złożony
+
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+### N<span style="text-transform: lowercase;">arzędzia</span>
+
+Narzędzia zarządzania projektami:
+
+- [Jetbrains Youtrack](https://www.jetbrains.com/youtrack/) ([przykład](https://youtrack.jetbrains.com/issues))
+- [Atlassian Jira](https://www.atlassian.com/software/jira) ([przykład](https://jira.atlassian.com/browse/JSWCLOUD-20833?filter=98153))
+- [Asana](https://asana.com/)
+
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+### N<span style="text-transform: lowercase;">arzędzia</span>
+
+Open source:
+
+1. [mantisbt](https://www.mantisbt.org/bugs/view_all_bug_page.php)
+2. <a href="https://www.redmine.org/projects/redmine/issues">redmine</a>
+3. <a href="https://trac.edgewall.org/report/13?sort=created&USER=anonymous">trac</a>
+4. <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1496148">bugzilla</a>
+
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+### N<span style="text-transform: lowercase;">arzędzia</span>
+
+Można spotkać również:
+
+- [taiga.io](https://www.taiga.io/) ([przykład](https://tree.taiga.io/project/taiga/timeline))
+- [Notion.so](https://www.notion.so/product/notion-for-engineering)
+- [Trello](https://trello.com/templates/engineering/agile-sprint-board-ZqN99gGN)
+
+<p><small>Doskonałe również dla waszych projektów</small></p>
+					</script>
+				</section>
+
+<!-- https://github.com/MichaelMure/git-bug -->
+<!-- https://linear.app/ - bug tracker with new UI -->
+<!-- https://blossom.co/ - sth like nicer trello for eng -->
+<!-- https://waydev.co/ - tracking sw dev -->
+<!-- https://www.wrike.com/tour/ -->
+<!-- https://hive.com/ -->
+
+				<!-- section data-markdown>
+					<script type="text/template">
+## D<span style="text-transform: lowercase;">zień bez ćwiczeń dniem straconym</span>
+					</script>
+				</section -->
+
+				<!-- section data-markdown>
+					<script type="text/template">
+### M<span style="text-transform: lowercase;">yśleć jak użytkownik</span>
+
+<img src="img/app_delivered.jpg" width="60%" />
+
+<p>Skupienie na testach akceptacyjnych</p>
+					</script>
+				</section -->
+
+				<!-- section data-markdown>
+					<script type="text/template">
+#### G<span style="text-transform: lowercase;">herkin</span>
+
+- tłumaczony na kod:
+
+```python
+@given("a customer previously bought a black sweater from me")
+def step(context):
+    pass
+```
+					</script>
+				</section -->
+
+				<!-- section data-markdown>
+					<script type="text/template">
+### D<span style="text-transform: lowercase;">emo</span>
+
+- [github.com/wojciech11/se_bdd_basics](github.com/wojciech11/se_bdd_basics/tree/master/zadanie_1)
+
+```bash
+git clone https://github.com/wojciech11/se_bdd_basics.git
+cd se_bdd_basics
+
+# opcjonalne
+python3 -m venv .venv
+source .venv/bin/activate
+
+cd zadanie_1
+behave
+```
+					</script>
+				</section -->
+
+				<section data-markdown>
+					<script type="text/template">
+### Ć<span style="text-transform: lowercase;">wiczenia </span>P<span style="text-transform: lowercase;">raktyczne</span>
+
+<img src="img/app_delivered.jpg" width="50%" />
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+### Ś<span style="text-transform: lowercase;">rodowisko</span>
+
+- https://vlabs...
+- u: p:
+
+- VM: Ubuntu 20.04.3, u: student p:
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+### P<span style="text-transform: lowercase;">rzygotowanie</span>
+
+- uruchom `Terminal`
+
+```bash
+sudo snap install atom --classic
+```
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+### P<span style="text-transform: lowercase;">rzygotowanie</span>
+
+```bash
+sudo su
+apt-get update ;
+apt-get install -qq apt-transport-https ca-certificates curl software-properties-common ;
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - ;
+add-apt-repository 'deb [arch=amd64] https://download.docker.com/linux/ubuntu '$(lsb_release -cs)' stable' ;
+apt-get update ;
+apt-get install -qq docker-ce ;
+```
+					</script>
+				</section>
+
+
+				<section data-markdown>
+					<script type="text/template">
+### P<span style="text-transform: lowercase;">rzygotowanie</span>
+
+- Youtrack:
+
+```bash
+docker run  -p 8080:8080 --name wsb-youtrack jetbrains/youtrack:2021.4.33055
+```
+
+<p><small>Jest też wersja darmowa w chmurze</small></p>
+					</script>
+				</section>
+				<!--  docker run -p 8080:3000 -d --name wsb-redmine redmine -->
+				<!-- 
+					
+					Można również spróbować testlink:
+
+					https://github.com/bitnami/bitnami-docker-testlink#how-to-use-this-image
+
+					# z użyciem docker-compose:
+
+					$ curl -sSL https://raw.githubusercontent.com/bitnami/bitnami-docker-testlink/master/docker-compose.yml > docker-compose.yml
+					
+					$ docker-compose up -d
+				-->
+
+				<!--
+					jeśli nie jesteś w stanie w prosty sposób uruchomić narzędzia za pomocą dockera,
+					skorzystaj z bitnami: https://bitnami.com/stacks/containers
+				-->
+
+				<section data-markdown>
+					<script type="text/template">
+### P<span style="text-transform: lowercase;">rzygotowanie</span>
+
+- W przeglądarce - 127.0.0.1:8080
+- Token znajdzecie w ostatniej linii logów
+- Explore the demo project
+
+<p><small>Jest też wersja darmowa w chmurze</small></p>
+					</script>
+				</section>
+				<!--  docker run -p 8080:3000 -d --name wsb-redmine redmine -->
+
+				<section data-markdown>
+					<script type="text/template">
+### T<span style="text-transform: lowercase;">emplate</span>
+
+- Przygotuj template według wskazówek z wykładu oraz przykładów z projektów OpenSource
+- Opisz problem z zajęć dotyczących testów eksporacyjnych
+
+					</script>
+				</section>
+
+				<!-- section data-markdown>
+					<script type="text/template">
+### T<span style="text-transform: lowercase;">emplate</span>
+
+- Przygotuj template według wskazówek z wykładu
+- Opisz problem z zajęć dotyczących testów eksporacyjnych
+
+					</script>
+				</section -->
+
+				<section data-markdown>
+					<script type="text/template">
+### E<span style="text-transform: lowercase;">gzamin</span>
+
+- 1 punkt za wypełnienie ankiety wykładowcy
+- 15 pytań
+					</script>
+				</section>
+
+				<!-- section data-markdown>
+					<script type="text/template">
+### P<span style="text-transform: lowercase;">aremetryzacja</span>
+
+steps/food.py:
+
+```python
+from behave import given, when, then, step
+
+@given("there were {number:d} cucumbers")
+def step_cucumber(context, number):
+    pass
+
+@when("I eat {number:d} cucumbers")
+def step_eating(context, number):
+    pass
+
+@then("I should have {number:d} cucumbers")
+def step_after(context, number):
+    pass
+```
+					</script>
+				</section -->
+
+				<!-- section data-background="img/adam_gherkin_prefer.png" data-background-repeat="" data-background-size="90%">
+				</section -->
+
+				<!-- section>
+					<div class="container">
+						<div class="row">
+							<div class='col-md-6'>
+								<img width="100%" style="object-fit: fill;" src="img/reflector_49842649546_b4cea27ea5_c.jpg" />
+								< ! - - https://www.flickr.com/photos/mustadmarine/49842649546/ -->
+							<!-- /div>
+							<div class='col-md-6'>
+								<p>Kto to jest tester oprogramowania?</p>
+								<ul>
+									<li>Reflektor, każdego projektu</li>
+									<li>Obserwator na dziobie okrętu</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</section -->
+
+			<!--
+				Koniec
+			-->
+			<section>
+				<h3>Dziękuję za uwagę</h3>
+				<h4>W<span style="text-transform: lowercase;">ojciech</span> B<span style="text-transform: lowercase;">arczyński </span></h4>
+				<h4><span style="text-transform: lowercase;">wojciech.barczynski@wsb.wroclaw.pl</span></h4>
+			</section>
+
+			<section data-markdown>
+				<script type="text/template">
+#### Backup Slides
+
+<!-- img width="70%" src="img/Rubber_Duck_Sea_by_whispering_hills_1000_673_84_c1.jpg" -->
+				</script>
+			</section>
+
+			<section data-background="img/tester_przyklad_python_technologie.png" data-background-repeat="" data-background-size="100%">
+			</section>
+
+			<!--
+			https://github.com/wojciech11/how_to_start_your_it_career
+			-->
+
+			<!-- section>
+				<h3>Licencja</h3>
+				<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0; width:40%" src="img/licence-by.svg" /></a><br />This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons<br /> Attribution 4.0 International License</a>
+			</section -->
+
+			</div>
+		</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/dependencies.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
