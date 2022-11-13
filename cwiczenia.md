@@ -25,11 +25,11 @@ exit
 
 ## Przygotowanie - uruchomienie YouTrack
 
-Wszystkie dostępne wersje youtrack (łącznie z najnowszą) znajdziesz na [hub.docker.com/r/jetbrains](https://hub.docker.com/r/jetbrains/youtrack/tags).
+Wszystkie dostępne wersje youtrack znajdziesz na [hub.docker.com/r/jetbrains](https://hub.docker.com/r/jetbrains/youtrack/tags), sprawdź przed uruchomieniem poniższej komendy czy nie ma nowszej wersji (tagu):
 
 ```bash
 # z sudo
-docker run  -p 8080:8080 --name wsb-youtrack jetbrains/youtrack:2021.4.33055
+docker run  -p 8080:8080 --name wsb-youtrack jetbrains/youtrack:2022.2.60480
 ```
 
 ## Youtrack
