@@ -25,6 +25,7 @@ exit
 
 ## Przygotowanie - uruchomienie YouTrack
 
+Wszystkie dostępne wersje youtrack znajdziesz na [hub.docker.com/r/jetbrains](https://hub.docker.com/r/jetbrains/youtrack/tags).
 
 ```bash
 # z sudo
