@@ -38,6 +38,11 @@ docker run  -p 8080:8080 --name wsb-youtrack jetbrains/youtrack:2022.2.60480
 2. Ustaw hasło takie, żeby nie zapomnieć, np., `admin`.
 3. Wybierz Explore the demo project.
 
+## Ćwiczenie
+
+- Przygotuj template według wskazówek z wykładu oraz przykładów z projektów OpenSource;
+- Opisz problem z zajęć dotyczących testów eksporacyjnych lub BDD.
+
 ## Przydatne komenty
 
 Zauważ, na linuxie musisz poprzedzić komendy `sudo`:
