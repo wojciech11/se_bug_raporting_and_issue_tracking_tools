@@ -19,7 +19,7 @@ add-apt-repository 'deb [arch=amd64] https://download.docker.com/linux/ubuntu '$
 apt-get update ;
 apt-get install -qq docker-ce ;
 
-# 
+# nie powinnismy byc rootem dluzej niz to jest potrzebne
 exit
 ```
 
